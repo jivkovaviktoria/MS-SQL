@@ -16,3 +16,6 @@ create table Towns(
     Name nvarchar(50) not null,
 	primary key(Id)
 )
+
+--Alter Minions table (Problem 3)
+alter table Minions add foreign key(TownId) references Towns(Id)
