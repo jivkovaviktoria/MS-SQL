@@ -29,3 +29,23 @@ delete from Minions
 
 --Drop all tables (Problem 6)
 drop table Minions
+
+--Create table People (Problem 7)
+create table People(
+    Id int not null identity(1, 1),
+    Name nvarchar(200) not null,
+    Picture varbinary(max),
+    Height decimal(2),
+    Weight decimal(2),
+    Gender char not null check(Gender in ('m', 'f')),
+    Birthdate date not null,
+    Biography nvarchar(max)
+    primary key (Id)
+)
+
+insert into People(Name, Gender, Birthdate)
+values ('Tony', 'm', '2002-04-13'),
+       ('Tony2', 'm', '2002-04-14'),
+       ('Tony3', 'm', '2002-04-15'),
+       ('Tony4', 'm', '2002-04-16'),
+       ('Tony5', 'm', '2002-04-17')
