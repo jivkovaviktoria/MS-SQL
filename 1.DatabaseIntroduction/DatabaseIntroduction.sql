@@ -79,3 +79,8 @@ alter table Users add check(datalength(Password) >= 5)
 
 --Set Default Value of a Field (Problem 11)
 alter table Users add constraint LastLoginTime default current_timestamp for LastLoginTime
+
+--Set unique field (Problem 12)
+alter table Users drop PK__Users__77222459711C8276;
+alter table Users add primary key (Id)
+alter table Users add check(datalength(Username) >= 3)
