@@ -68,3 +68,9 @@ values ('Tony', '123456'),
        ('Borislav', '123456'),
        ('Tomi', '123456'),
        ('Jivko', '123456')
+
+--Change primary key (Problem 9)
+
+alter table Users drop PK__Users__3214EC073AF5214B
+alter table Users add primary key(Id, Username)
+
