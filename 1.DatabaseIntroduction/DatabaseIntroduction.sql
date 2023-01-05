@@ -74,3 +74,5 @@ values ('Tony', '123456'),
 alter table Users drop PK__Users__3214EC073AF5214B
 alter table Users add primary key(Id, Username)
 
+--Add Check Constraint (Problem 10)
+alter table Users add check(datalength(Password) >= 5)
