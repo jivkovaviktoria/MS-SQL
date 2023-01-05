@@ -26,3 +26,6 @@ insert into Minions(id, name, age, TownId) values (1, 'Kevin', 22, 1), (2, 'Bob'
 
 --Truncate table Minions (Problem 5)
 delete from Minions
+
+--Drop all tables (Problem 6)
+drop table Minions
