@@ -49,3 +49,22 @@ values ('Tony', 'm', '2002-04-13'),
        ('Tony3', 'm', '2002-04-15'),
        ('Tony4', 'm', '2002-04-16'),
        ('Tony5', 'm', '2002-04-17')
+
+--Create table users (Problem 8)
+
+create table Users(
+    Id int not null identity(1,1),
+    Username varchar(30) not null,
+    Password varchar(26) not null,
+    ProfilePicture varbinary(max),
+    LastLoginTime time,
+    IsDeleted bit,
+    primary key(Id)
+)
+
+insert into Users(Username, Password)
+values ('Tony', '123456'),
+       ('Viki', '123456'),
+       ('Borislav', '123456'),
+       ('Tomi', '123456'),
+       ('Jivko', '123456')
