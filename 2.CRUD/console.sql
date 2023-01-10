@@ -9,3 +9,6 @@ select FirstName, LastName, Salary from Employees;
 
 --05. Find Full Name of each Employee
 select FirstName, MiddleName, LastName from Employees;
+
+--06. Find Email address of each Employee
+select FirstName + '.' + LastName + '@softuni.bg' as 'Full Email Address' from Employees;
