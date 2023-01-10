@@ -21,3 +21,6 @@ select * from Employees where JobTitle = 'Sales Representative';
 
 --09. Find names of all Employees by Salary in range
 select FirstName, LastName, JobTitle from Employees where Salary >= 20000 and Salary <= 30000;
+
+--10. Find names of all Employees
+select FirstName + ' ' + MiddleName + ' ' + LastName as 'Full Name' from Employees where Salary in (25000, 12500, 14000, 23600);
