@@ -18,3 +18,6 @@ select distinct Salary from Employees;
 
 --08. Find All information about Employees
 select * from Employees where JobTitle = 'Sales Representative';
+
+--09. Find names of all Employees by Salary in range
+select FirstName, LastName, JobTitle from Employees where Salary >= 20000 and Salary <= 30000;
