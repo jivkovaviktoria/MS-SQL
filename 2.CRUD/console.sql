@@ -15,3 +15,6 @@ select FirstName + '.' + LastName + '@softuni.bg' as 'Full Email Address' from E
 
 --07. Find all different Employee's salaries
 select distinct Salary from Employees;
+
+--08. Find All information about Employees
+select * from Employees where JobTitle = 'Sales Representative';
