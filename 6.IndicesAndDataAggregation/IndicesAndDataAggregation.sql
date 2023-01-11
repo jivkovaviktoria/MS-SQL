@@ -12,3 +12,7 @@ group by DepositGroup
 select top 2 DepositGroup as LongestMagicWand from WizzardDeposits
 group by DepositGroup
 order by avg(MagicWandSize)
+
+--5. Deposit sum
+select DepositGroup, sum(DepositAmount) as ToralSum from WizzardDeposits
+group by DepositGroup
