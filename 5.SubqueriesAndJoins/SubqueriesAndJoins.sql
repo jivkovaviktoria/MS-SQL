@@ -146,3 +146,21 @@ select top 5 co.CountryName,
         order by r.Length desc) as LongestRiverLength
 from Countries as co
 order by HighestPeakElevation desc, LongestRiverLength desc, CountryName
+
+--18. Highest peak name and elevation by country
+select top 5 co.CountryName, COALESCE(po.PeakName, '(no highest peak)') as 'Highest Peak Name', COALESCE(po.Elevation, 0) as 'Highest Peak Elevation', COALESCE(mo.MountainRange, '(no mountain)') as 'Mountain'
+from Countries as co
+left join MountainsCountries as mco on co.CountryCode = mco.CountryCode
+left join Mountains as mo on mco.MountainId = mo.Id
+left join Peaks as po on mo.Id = po.MountainId
+where po.Elevation is null or po.Elevation = (select top 1 p.Elevation
+        from Countries as c
+                 inner join MountainsCountries as mc
+                      on c.CountryCode = mc.CountryCode
+                 inner join Mountains as m
+                      on mc.MountainId = m.Id
+                 inner join Peaks as p
+                      on m.Id = p.MountainId
+        where c.CountryCode = co.CountryCode
+        order by p.Elevation desc)
+order by co.CountryName, po.PeakName
