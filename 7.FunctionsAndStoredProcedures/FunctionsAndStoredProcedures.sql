@@ -19,3 +19,12 @@ as select e.FirstName, e.LastName from Employees as e
 join Addresses a on e.AddressID = a.AddressID
 join Towns as t on a.TownID = t.TownID
 where t.Name = @town
+
+--5. Salary level function
+create or alter function ufn_GetSalaryLevel(@salary decimal(18,4))
+returns nvarchar(max) as
+begin
+    if(@salary < 30000) return 'Low'
+    else if(@salary <= 50000) return 'Average'
+    return 'High'
+end
