@@ -28,3 +28,8 @@ where MagicWandCreator = 'Ollivander family'
 group by DepositGroup
 having sum(DepositAmount) < 150000
 order by TotalSum desc 
+
+--8. Deposit charge
+select DepositGroup, MagicWandCreator, min(DepositCharge) from WizzardDeposits
+group by DepositGroup, MagicWandCreator
+order by MagicWandCreator, DepositGroup
