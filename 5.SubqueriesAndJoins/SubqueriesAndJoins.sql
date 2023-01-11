@@ -33,3 +33,10 @@ left join EmployeesProjects as p
 on e.EmployeeID = p.EmployeeID
 where p.ProjectID is null
 order by e.EmployeeID
+
+--6. Employees hired after
+select e.FirstName, e.LastName, e.HireDate, d.Name as DeptName from Employees as e
+inner join Departments as d
+on e.DepartmentID = d.DepartmentID
+where e.HireDate > '1999-01-01' and d.Name in ('Sales', 'Finance')
+order by e.HireDate
