@@ -26,3 +26,10 @@ inner join Departments as d
 on e.DepartmentID = d.DepartmentID
 where e.Salary > 15000
 order by d.DepartmentID
+
+--5. Employees without project
+select top 3 e.EmployeeID, e.FirstName from Employees as e
+left join EmployeesProjects as p
+on e.EmployeeID = p.EmployeeID
+where p.ProjectID is null
+order by e.EmployeeID
