@@ -33,3 +33,19 @@ end
 create or alter proc usp_EmployeesBySalaryLevel
 @salaryLevel nvarchar(max)
 as select e.FirstName, e.LastName from Employees as e where dbo.ufn_GetSalaryLevel(e.Salary) = @salaryLevel
+
+--7. Define function
+create or alter function ufn_IsWordComprised
+(@letters nvarchar(max), @word nvarchar(max))
+returns bit
+begin
+    declare @index int = 1
+    while(@index <= len(@word))
+    begin
+        declare @symbol nchar(1) = substring(@word, @index, 1)
+        if(charindex(@symbol, @letters) = 0) return 0
+        set @index = @index + 1
+    end
+
+    return 1
+end
