@@ -40,3 +40,12 @@ inner join Departments as d
 on e.DepartmentID = d.DepartmentID
 where e.HireDate > '1999-01-01' and d.Name in ('Sales', 'Finance')
 order by e.HireDate
+
+--7. Employees with project
+select top 5 e.EmployeeID, e.FirstName, p.Name as ProjectName from Employees as e
+inner join EmployeesProjects as ep
+on e.EmployeeID = ep.EmployeeID
+inner join Projects as p
+on ep.ProjectID = p.ProjectID
+where p.StartDate > '2002-08-13' and p.EndDate is null
+order by e.EmployeeID
