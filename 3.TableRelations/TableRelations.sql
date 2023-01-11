@@ -69,3 +69,47 @@ create table Teachers(
 
 insert into Teachers
 values(101,'John',NULL),(102,'Maya',106),(103,'Silvia',106),(104,'Ted',105),(105,'Mark',101),(106,'Greta',101);
+
+-- Online Store Database (Problem 5)
+
+create table ItemTypes(
+    ItemTypeID int identity not null,
+    Name varchar(50) not null ,
+    primary key (ItemTypeID)
+)
+
+create table Items(
+    ItemID int identity not null,
+    Name varchar(50) not null,
+    ItemTypeID int not null,
+    primary key (ItemID),
+    foreign key (ItemTypeID) references ItemTypes(ItemTypeID)
+)
+
+create table Cities(
+    CityID int identity not null ,
+    Name varchar(50) not null ,
+    primary key (CityID)
+)
+
+create table Customers(
+    CustomerID int identity not null,
+    Name varchar(50) not null,
+    Birthday date not null,
+    CityID int not null,
+    primary key (CustomerID),
+    foreign key (CityID) references Cities(CityID)
+)
+create table Orders(
+    OrderID int identity not null,
+    CustomerID int not null,
+    primary key (OrderID),
+    foreign key(CustomerID) references Customers(CustomerID)
+)
+create table OrderItems(
+    OrderID int not null,
+    ItemID int not null,
+    primary key (OrderID, ItemID),
+    foreign key (OrderID) references Orders(OrderID),
+    foreign key (ItemID) references Items(ItemID)
+)
