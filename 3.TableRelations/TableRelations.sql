@@ -15,3 +15,21 @@ create table Passports(
 )
 
 alter table Persons add foreign key (PassportID) references Passports(PassportId)
+
+-- One-To-Many Relationship (Problem 2)
+
+create table Models(
+    ModelID int identity not null,
+    Name nvarchar(max) not null,
+    ManufacturerID int not null,
+    primary key (ModelID)
+)
+
+create table Manufacturers(
+    ManufacturerID int identity not null,
+    Name nvarchar(max) not null,
+    EstablishedOn datetime2 not null,
+    primary key (ManufacturerID)
+)
+
+alter table Models add foreign key (ManufacturerID) references Manufacturers(ManufacturerID)
