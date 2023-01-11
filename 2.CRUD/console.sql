@@ -63,3 +63,6 @@ select Salary from Employees;
 
 --22. All Mountain peeks
 select PeakName from Peaks order by PeakName;
+
+--23. Biggest countries by population
+select top 30 CountryName, Population from Countries where ContinentCode = 'EU' order by Population desc, CountryName;
