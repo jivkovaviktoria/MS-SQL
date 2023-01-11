@@ -21,3 +21,7 @@ select TownID, Name from Towns where Name not like '[RBD]%' order by Name;
 
 -- Problem 8. Create View Employees Hired After
 create view V_EmployeesHiredAfter2000 as select FirstName, lastname from Employees where HireDate > '2000-12-31';
+
+-- Problem 9. Length of Last Name
+select FirstName, LastName from Employees where len(LastName) = 5;
+
