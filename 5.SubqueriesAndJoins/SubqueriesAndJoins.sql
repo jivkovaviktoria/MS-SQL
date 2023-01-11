@@ -57,3 +57,10 @@ on e.EmployeeID = ep.EmployeeID
 inner join Projects as p
 on ep.ProjectID = p.ProjectID
 where e.EmployeeID = 24
+
+--9. Employee Manager
+select e.EmployeeID, e.FirstName, e.ManagerID, m.FirstName from Employees as e
+inner join Employees as m
+on e.ManagerID = m.EmployeeID
+where e.ManagerID in (3, 7)
+order by e.EmployeeID
