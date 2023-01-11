@@ -33,3 +33,26 @@ create table Manufacturers(
 )
 
 alter table Models add foreign key (ManufacturerID) references Manufacturers(ManufacturerID)
+
+-- Many-To-Many Relationship (Problem 3)
+
+create table Students(
+    StudentID int identity not null,
+    Name nvarchar(max) not null,
+    primary key (StudentID)
+)
+
+create table Exams(
+    ExamID int identity not null,
+    Name nvarchar(max) not null,
+    primary key (ExamID)
+)
+
+create table StudentsExams(
+    StudentID int not null,
+    ExamID int not null
+)
+
+alter table StudentsExams add foreign key (StudentID) references Students
+alter table StudentsExams add foreign key (ExamID) references Exams
+alter table StudentsExams add primary key (StudentID, ExamID)
