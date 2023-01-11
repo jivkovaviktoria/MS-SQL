@@ -11,3 +11,11 @@ inner join Addresses as a
 inner join Towns as t
  on a.TownID = t.TownID
 order by e.FirstName, e.LastName
+
+--3. Sales employees
+select e.EmployeeID, e.FirstName, e.LastName, d.Name
+from Employees as e
+inner join Departments as d
+on e.DepartmentID = d.DepartmentID
+where d.Name = 'Sales'
+order by e.EmployeeID
