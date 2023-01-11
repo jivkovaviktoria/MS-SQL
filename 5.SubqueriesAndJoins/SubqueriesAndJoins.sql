@@ -78,3 +78,14 @@ order by e.EmployeeID
 select top 1 avg(e.Salary) from Employees as e
 group by e.DepartmentID
 order by avg(e.Salary)
+
+--12. Highest Peaks in Bulgaria
+select c.CountryCode, m.MountainRange, p.PeakName, p.Elevation from Countries as c
+inner join MountainsCountries as mc
+on c.CountryCode = mc.CountryCode
+inner join Mountains as m
+on mc.MountainId = m.Id
+inner join Peaks as p
+on mc.MountainId = p.MountainId
+where p.Elevation > 2835 and c.CountryName = 'Bulgaria'
+order by p.Elevation desc
