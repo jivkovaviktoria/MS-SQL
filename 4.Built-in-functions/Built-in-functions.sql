@@ -12,3 +12,6 @@ select FirstName, LastName from Employees where JobTitle not like '%engineer%';
 
 -- Problem 5. Problem 5.Find Towns with Name Length
 select Name from Towns where len(Name) in (5, 6) order by Name;
+
+-- Problem 6. Find Towns Starting With
+select TownID, Name from Towns where Name like '[MKBE]%' order by Name;
