@@ -47,3 +47,7 @@ create view V_EmployeesSalaries as (select FirstName, LastName, Salary from Empl
 create view V_EmployeeNameJobTitle as(
     select FirstName + ' ' + isnull(MiddleName, '') + ' ' + LastName as 'Full Name', JobTitle from Employees
 );
+
+--18. Distinct Job titles
+select distinct JobTitle from Employees;
+ 
