@@ -28,3 +28,8 @@ begin
     else if(@salary <= 50000) return 'Average'
     return 'High'
 end
+
+--6. Employees by salary level
+create or alter proc usp_EmployeesBySalaryLevel
+@salaryLevel nvarchar(max)
+as select e.FirstName, e.LastName from Employees as e where dbo.ufn_GetSalaryLevel(e.Salary) = @salaryLevel
