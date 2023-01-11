@@ -42,3 +42,8 @@ select * from Employees order by Salary desc, FirstName, LastName desc, MiddleNa
 
 --16. Create View Employees with salaries
 create view V_EmployeesSalaries as (select FirstName, LastName, Salary from Employees);
+
+--17. Create View Employees with Job titles
+create view V_EmployeeNameJobTitle as(
+    select FirstName + ' ' + isnull(MiddleName, '') + ' ' + LastName as 'Full Name', JobTitle from Employees
+);
