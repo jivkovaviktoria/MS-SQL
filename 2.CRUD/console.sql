@@ -66,3 +66,6 @@ select PeakName from Peaks order by PeakName;
 
 --23. Biggest countries by population
 select top 30 CountryName, Population from Countries where ContinentCode = 'EU' order by Population desc, CountryName;
+
+--24. Countries and Currency (Euro\Not Euro)
+select CountryName, CountryCode, IIF(CurrencyCode = 'EUR', 'Euro', 'Not Euro') as 'Currency' from Countries order by CountryName;
