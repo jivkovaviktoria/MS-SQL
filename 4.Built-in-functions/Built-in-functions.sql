@@ -37,3 +37,5 @@ from (
 ) t
 where Rank = 2
 order by Salary desc;
+
+
