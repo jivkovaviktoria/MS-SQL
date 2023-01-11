@@ -28,4 +28,12 @@ select FirstName, LastName from Employees where len(LastName) = 5;
 -- Problem 10. Rank Employees by Salary
 select EmployeeID, FirstName, LastName, Salary, dense_rank() over (partition by Salary order by EmployeeID) as Rank from Employees where Salary between 10000 and 50000 order by Salary desc;
 
-
+-- Problem 11. Problem 11.Find All Employees with Rank 2*
+select EmployeeID, FirstName, LastName, Salary, Rank
+from (
+  select EmployeeID, FirstName, LastName, Salary, dense_rank() over (partition by Salary order by EmployeeID) as Rank
+  from Employees
+  where Salary between 10000 and 50000
+) t
+where Rank = 2
+order by Salary desc;
