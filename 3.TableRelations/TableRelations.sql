@@ -153,3 +153,12 @@ create table Agenda(
     foreign key (StudentID) references Students(StudentID),
     foreign key (SubjectID) references Subjects(SubjectID)
 )
+
+
+-- *Peaks in Rila (Problem 9)
+
+select m.MountainRange, p.PeakName, p.Elevation
+from Peaks as p join Mountains as m
+    on p.MountainId = m.Id
+where MountainId = 17
+order by Elevation desc
