@@ -6,3 +6,6 @@ select FirstName, LastName from Employees where LastName like '%ei%';
 
 -- Problem 3. Find First Names of All Employees
 select FirstName from Employees where DepartmentID in(3, 10) and year(HireDate) between 1995 and 2005;
+
+-- Problem 4. Find All Employees Except Engineers
+select FirstName, LastName from Employees where JobTitle not like '%engineer%';
