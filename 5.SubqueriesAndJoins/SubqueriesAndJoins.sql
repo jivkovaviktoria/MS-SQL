@@ -123,3 +123,26 @@ order by c.ContinentCode
 --16. Countries without any mountains
 select count(*) from Countries
 where CountryCode not in(select CountryCode from MountainsCountries)
+
+--17. Highest peak and longest river by country
+select top 5 co.CountryName,
+       (select top 1 p.Elevation
+        from Countries as c
+                 join MountainsCountries as mc
+                      on c.CountryCode = mc.CountryCode
+                 join Mountains as m
+                      on mc.MountainId = m.Id
+                 join Peaks as p
+                      on m.Id = p.MountainId
+        where c.CountryCode = co.CountryCode
+        order by p.Elevation desc) as HighestPeakElevation,
+       (select top 1 r.Length
+        from Countries as c
+                 join CountriesRivers as cr
+                      on c.CountryCode = cr.CountryCode
+                 join Rivers as r
+                      on cr.RiverId = r.Id
+        where c.CountryCode = co.CountryCode
+        order by r.Length desc) as LongestRiverLength
+from Countries as co
+order by HighestPeakElevation desc, LongestRiverLength desc, CountryName
