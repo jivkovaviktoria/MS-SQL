@@ -73,3 +73,8 @@ on e.ManagerID = m.EmployeeID
 inner join Departments as d
 on e.DepartmentID = d.DepartmentID
 order by e.EmployeeID
+
+--11. Min Average Salary
+select top 1 avg(e.Salary) from Employees as e
+group by e.DepartmentID
+order by avg(e.Salary)
