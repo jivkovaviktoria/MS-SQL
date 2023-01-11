@@ -9,3 +9,6 @@ select FirstName from Employees where DepartmentID in(3, 10) and year(HireDate) 
 
 -- Problem 4. Find All Employees Except Engineers
 select FirstName, LastName from Employees where JobTitle not like '%engineer%';
+
+-- Problem 5. Problem 5.Find Towns with Name Length
+select Name from Towns where len(Name) in (5, 6) order by Name;
