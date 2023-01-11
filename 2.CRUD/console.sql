@@ -69,3 +69,6 @@ select top 30 CountryName, Population from Countries where ContinentCode = 'EU' 
 
 --24. Countries and Currency (Euro\Not Euro)
 select CountryName, CountryCode, IIF(CurrencyCode = 'EUR', 'Euro', 'Not Euro') as 'Currency' from Countries order by CountryName;
+
+--25. All Diablo Characters
+select Name from Characters order by Name;
