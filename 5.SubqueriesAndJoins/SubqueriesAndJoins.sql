@@ -89,3 +89,12 @@ inner join Peaks as p
 on mc.MountainId = p.MountainId
 where p.Elevation > 2835 and c.CountryName = 'Bulgaria'
 order by p.Elevation desc
+
+--13. Count mountain ranges
+select c.CountryCode, count(m.MountainRange) from Countries as c
+inner join MountainsCountries as mc
+on c.CountryCode = mc.CountryCode
+inner join Mountains as m
+on mc.MountainId = m.Id
+where c.CountryCode in ('BG', 'US', 'RU')
+group by c.CountryCode
