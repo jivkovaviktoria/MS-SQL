@@ -119,3 +119,7 @@ having count(*) > 1
                    group by csq.ContinentCode, csq.CurrencyCode
                    order by count(*) DESC)
 order by c.ContinentCode
+
+--16. Countries without any mountains
+select count(*) from Countries
+where CountryCode not in(select CountryCode from MountainsCountries)
