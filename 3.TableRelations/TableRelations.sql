@@ -113,3 +113,43 @@ create table OrderItems(
     foreign key (OrderID) references Orders(OrderID),
     foreign key (ItemID) references Items(ItemID)
 )
+
+-- University Database (Problem 6)
+
+create table Subjects(
+    SubjectID int identity not null,
+    SubjectName nvarchar(max) not null,
+    primary key (SubjectID)
+)
+
+create table Majors(
+    MajorID int identity not null,
+    Name nvarchar(max) not null ,
+    primary key (MajorID)
+)
+
+create table Students(
+    StudentID int identity not null ,
+    StudentNumber int not null,
+    StudentName nvarchar(max) not null,
+    MajorID int not null,
+    primary key (StudentID),
+    foreign key (MajorID) references Majors(MajorID)
+)
+
+create table Payments(
+    PaymentID int identity not null,
+    PaymentDate date not null,
+    PaymentAmount decimal not null,
+    StudentID int not null,
+    primary key (PaymentID),
+    foreign key (StudentID) references Students(StudentID)
+)
+
+create table Agenda(
+    StudentID int not null,
+    SubjectID int not null,
+    primary key (StudentID, SubjectID),
+    foreign key (StudentID) references Students(StudentID),
+    foreign key (SubjectID) references Subjects(SubjectID)
+)
