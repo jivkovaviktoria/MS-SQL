@@ -27,3 +27,6 @@ select FirstName + ' ' + MiddleName + ' ' + LastName as 'Full Name' from Employe
 
 --11. Find all Employees without Manager
 select FirstName, LastName from Employees where ManagerID is null;
+
+--12. Find all Employees with Salary more than
+select FirstName, LastName, Salary from Employees where Salary > 50000 order by Salary desc;
