@@ -56,3 +56,7 @@ select top 10 * from Projects order by StartDate, Name;
 
 --20. Last 7 hired Employees
 select top 7 FirstName, LastName, HireDate from Employees order by HireDate desc;
+
+--21. Increase salaries
+update Employees set Salary = Salary*1.12 where DepartmentID in(1, 2, 11, 4);
+select Salary from Employees;
