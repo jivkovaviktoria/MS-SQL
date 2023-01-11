@@ -60,3 +60,6 @@ select top 7 FirstName, LastName, HireDate from Employees order by HireDate desc
 --21. Increase salaries
 update Employees set Salary = Salary*1.12 where DepartmentID in(1, 2, 11, 4);
 select Salary from Employees;
+
+--22. All Mountain peeks
+select PeakName from Peaks order by PeakName;
