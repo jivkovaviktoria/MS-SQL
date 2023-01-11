@@ -107,3 +107,15 @@ left join Rivers as r
 on cr.RiverId = r.Id
 where c.ContinentCode = 'AF'
 order by c.CountryName
+
+--15. Countries and currencies
+select c.ContinentCode, c.CurrencyCode, count(*)
+from Countries as c
+group by c.ContinentCode, c.CurrencyCode
+having count(*) > 1
+   and count(*) = (select top 1 count(*)
+                   from Countries as csq
+                   where csq.ContinentCode = c.ContinentCode
+                   group by csq.ContinentCode, csq.CurrencyCode
+                   order by count(*) DESC)
+order by c.ContinentCode
