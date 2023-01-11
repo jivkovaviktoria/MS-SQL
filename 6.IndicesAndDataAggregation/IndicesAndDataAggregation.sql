@@ -16,3 +16,8 @@ order by avg(MagicWandSize)
 --5. Deposit sum
 select DepositGroup, sum(DepositAmount) as ToralSum from WizzardDeposits
 group by DepositGroup
+
+--6. Deposits sum for Ollivander family
+select DepositGroup, sum(DepositAmount) as ToralSum from WizzardDeposits
+where MagicWandCreator = 'Ollivander family'
+group by DepositGroup
