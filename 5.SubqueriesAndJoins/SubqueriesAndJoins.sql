@@ -49,3 +49,11 @@ inner join Projects as p
 on ep.ProjectID = p.ProjectID
 where p.StartDate > '2002-08-13' and p.EndDate is null
 order by e.EmployeeID
+
+--8. Employee 24
+select e.EmployeeID, e.FirstName, IIF(p.StartDate >= '2005-01-01', NULL, p.Name)  as ProjectName from Employees as e
+inner join EmployeesProjects as ep
+on e.EmployeeID = ep.EmployeeID
+inner join Projects as p
+on ep.ProjectID = p.ProjectID
+where e.EmployeeID = 24
