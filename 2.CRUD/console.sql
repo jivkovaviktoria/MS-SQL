@@ -36,3 +36,6 @@ select top 5 FirstName, LastName from Employees order by Salary desc;
  
  --14. Find all Employees except Marketing
 select FirstName, LastName from Employees where DepartmentID != 4;
+
+--15. Sort Employees table
+select * from Employees order by Salary desc, FirstName, LastName desc, MiddleName;
