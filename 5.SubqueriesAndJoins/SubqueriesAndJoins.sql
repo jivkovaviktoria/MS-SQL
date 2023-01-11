@@ -64,3 +64,12 @@ inner join Employees as m
 on e.ManagerID = m.EmployeeID
 where e.ManagerID in (3, 7)
 order by e.EmployeeID
+
+--10. Employees summary
+select top 50 e.EmployeeID, e.FirstName + ' ' + e.LastName as EmployeeName,m.FirstName + ' ' + m.LastName as ManagerName, d.Name as DepartmentName
+from Employees as e
+inner join Employees as m
+on e.ManagerID = m.EmployeeID
+inner join Departments as d
+on e.DepartmentID = d.DepartmentID
+order by e.EmployeeID
