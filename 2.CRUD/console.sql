@@ -30,3 +30,7 @@ select FirstName, LastName from Employees where ManagerID is null;
 
 --12. Find all Employees with Salary more than
 select FirstName, LastName, Salary from Employees where Salary > 50000 order by Salary desc;
+
+--13. Find 5 best paid Employees
+select top 5 FirstName, LastName from Employees order by Salary desc;
+ 
