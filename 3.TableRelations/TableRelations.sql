@@ -56,3 +56,16 @@ create table StudentsExams(
 alter table StudentsExams add foreign key (StudentID) references Students
 alter table StudentsExams add foreign key (ExamID) references Exams
 alter table StudentsExams add primary key (StudentID, ExamID)
+
+-- Self-Referencing (Problem 4)
+
+create table Teachers(
+    TeacherID int not null,
+    Name nvarchar(max) not null,
+    ManagerID int,
+    primary key (TeacherID),
+    foreign key (ManagerID) references Teachers(TeacherID)
+)
+
+insert into Teachers
+values(101,'John',NULL),(102,'Maya',106),(103,'Silvia',106),(104,'Ted',105),(105,'Mark',101),(106,'Greta',101);
