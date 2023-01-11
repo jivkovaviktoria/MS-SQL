@@ -51,3 +51,5 @@ create view V_EmployeeNameJobTitle as(
 --18. Distinct Job titles
 select distinct JobTitle from Employees;
  
+--19. Find first 10 started Projects
+select top 10 * from Projects order by StartDate, Name;
