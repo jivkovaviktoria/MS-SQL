@@ -98,3 +98,12 @@ inner join Mountains as m
 on mc.MountainId = m.Id
 where c.CountryCode in ('BG', 'US', 'RU')
 group by c.CountryCode
+
+--14. Countires with or without rivers
+select top 5 c.CountryName, r.RiverName from Countries as c
+left join CountriesRivers as cr
+on c.CountryCode = cr.CountryCode
+left join Rivers as r
+on cr.RiverId = r.Id
+where c.ContinentCode = 'AF'
+order by c.CountryName
