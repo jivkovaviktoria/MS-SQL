@@ -24,3 +24,6 @@ select FirstName, LastName, JobTitle from Employees where Salary >= 20000 and Sa
 
 --10. Find names of all Employees
 select FirstName + ' ' + MiddleName + ' ' + LastName as 'Full Name' from Employees where Salary in (25000, 12500, 14000, 23600);
+
+--11. Find all Employees without Manager
+select FirstName, LastName from Employees where ManagerID is null;
