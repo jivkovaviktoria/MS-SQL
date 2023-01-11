@@ -39,3 +39,6 @@ select FirstName, LastName from Employees where DepartmentID != 4;
 
 --15. Sort Employees table
 select * from Employees order by Salary desc, FirstName, LastName desc, MiddleName;
+
+--16. Create View Employees with salaries
+create view V_EmployeesSalaries as (select FirstName, LastName, Salary from Employees);
