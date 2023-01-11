@@ -34,3 +34,5 @@ select FirstName, LastName, Salary from Employees where Salary > 50000 order by 
 --13. Find 5 best paid Employees
 select top 5 FirstName, LastName from Employees order by Salary desc;
  
+ --14. Find all Employees except Marketing
+select FirstName, LastName from Employees where DepartmentID != 4;
