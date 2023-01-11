@@ -15,3 +15,6 @@ select Name from Towns where len(Name) in (5, 6) order by Name;
 
 -- Problem 6. Find Towns Starting With
 select TownID, Name from Towns where Name like '[MKBE]%' order by Name;
+
+-- Problem 7. Find Towns Not Starting With
+select TownID, Name from Towns where Name not like '[RBD]%' order by Name;
