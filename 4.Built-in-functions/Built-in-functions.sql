@@ -25,3 +25,7 @@ create view V_EmployeesHiredAfter2000 as select FirstName, lastname from Employe
 -- Problem 9. Length of Last Name
 select FirstName, LastName from Employees where len(LastName) = 5;
 
+-- Problem 10. Rank Employees by Salary
+select EmployeeID, FirstName, LastName, Salary, dense_rank() over (partition by Salary order by EmployeeID) as Rank from Employees where Salary between 10000 and 50000 order by Salary desc;
+
+
