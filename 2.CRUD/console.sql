@@ -53,3 +53,6 @@ select distinct JobTitle from Employees;
  
 --19. Find first 10 started Projects
 select top 10 * from Projects order by StartDate, Name;
+
+--20. Last 7 hired Employees
+select top 7 FirstName, LastName, HireDate from Employees order by HireDate desc;
