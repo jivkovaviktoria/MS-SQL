@@ -66,4 +66,18 @@ select Username, IpAddress from Users
 where IpAddress like '___.1%.%.___'
 order by Username
 
-
+-- Problem 17. Show all games with duration & part of the day
+select Name as Game,
+case
+ when datepart(hour, Start) between 0 and 11 then 'Morning'
+ when datepart(hour, Start) between 12 and 17 then 'Afternoon'
+ when datepart(hour, Start) between 18 and 24 then 'Evening'
+end as 'Part of the day',
+case
+ when Duration <= 3 then 'Extra Short'
+ when Duration between 4 and 6 then 'Short'
+ when Duration > 6 then 'Long'
+ when Duration is null then 'Extra Long'
+end as Duration
+from Games
+order by Game, Duration, 'Part of the day'
