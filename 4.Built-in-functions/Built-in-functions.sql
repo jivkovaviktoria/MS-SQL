@@ -81,3 +81,7 @@ case
 end as Duration
 from Games
 order by Game, Duration, 'Part of the day'
+
+-- Problem 18. Orders Table
+select ProductName, OrderDate, dateadd(day, 3, OrderDate) as 'Pay Due', dateadd(month, 1, OrderDate) as 'Deliver Due'
+from Orders
