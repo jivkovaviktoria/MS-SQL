@@ -38,4 +38,10 @@ from (
 where Rank = 2
 order by Salary desc;
 
+-- Problem 12. Countries holding 'A' three or more times
+select CountryName, IsoCode
+from Countries
+where CountryName like '%a%a%a%'
+order by IsoCode
+
 
