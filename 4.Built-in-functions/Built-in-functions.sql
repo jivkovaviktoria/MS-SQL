@@ -61,5 +61,9 @@ select Username, substring(Email, charindex('@', Email)+1, len(Email) - charinde
 from Users
 order by 'Email Provider', Username
 
+-- Problem 16. Get users with IP address like pattern
+select Username, IpAddress from Users
+where IpAddress like '___.1%.%.___'
+order by Username
 
 
