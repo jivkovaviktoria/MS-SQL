@@ -50,4 +50,10 @@ from Peaks, Rivers
 where right(PeakName, 1) = left(RiverName, 1)
 order by Mix
 
+-- Problem 14. Games from 2011 and 2012 year
+select top(50) Name, format(Start, 'yyyy-MM-dd') as Start
+from Games
+where Year(Start) in (2011,2012)
+order by Start, Name
+
 
