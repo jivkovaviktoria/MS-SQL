@@ -56,4 +56,10 @@ from Games
 where Year(Start) in (2011,2012)
 order by Start, Name
 
+-- Problem 15. User email providers
+select Username, substring(Email, charindex('@', Email)+1, len(Email) - charindex('@', Email)) as 'Email Provider'
+from Users
+order by 'Email Provider', Username
+
+
 
