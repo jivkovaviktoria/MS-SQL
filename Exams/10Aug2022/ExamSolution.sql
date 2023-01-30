@@ -86,3 +86,8 @@ where Establishment is null
 -- 04. Delete
 delete from TouristsBonusPrizes where BonusPrizeId = 5
 delete from BonusPrizes where Id = 5
+
+-- 05. Tourists
+
+Select Name, Age, PhoneNumber, Nationality from Tourists
+order by Nationality, Age desc, Name
