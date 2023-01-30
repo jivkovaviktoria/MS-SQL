@@ -134,3 +134,18 @@ join Sites as s on s.Id = st.SiteId
 join Categories as c on s.CategoryId = c.Id
 where c.Name = 'History and archaeology'
 order by LastName
+
+-- 11. Tourists Count on a Tourist Site
+
+create function udf_GetTouristsCountOnATouristSite
+    (@Site varchar(100))
+    returns int
+begin
+    declare @siteId int = (select Id from Sites where Name = @Site);
+    declare @count int = (select count(*) from Tourists as t
+                          join SitesTourists as st on t.Id = st.TouristId
+                          join Sites as s on st.SiteId = s.Id
+                          where s.Id = @siteId)
+    return @count;
+end
+
