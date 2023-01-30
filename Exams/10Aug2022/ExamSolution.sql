@@ -91,3 +91,10 @@ delete from BonusPrizes where Id = 5
 
 Select Name, Age, PhoneNumber, Nationality from Tourists
 order by Nationality, Age desc, Name
+
+-- 06. Sites with Their Location and Category
+
+select s.Name, l.Name, s.Establishment, c.Name from Sites as s
+join Locations as l on s.LocationId = l.Id
+join Categories as c on s.CategoryId = c.Id
+order by c.Name desc, l.Name, s.Name
