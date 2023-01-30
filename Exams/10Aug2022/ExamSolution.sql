@@ -149,3 +149,25 @@ begin
     return @count;
 end
 
+-- 12. Annual Reward Lottery
+
+create proc usp_AnnualRewardLottery
+    (@TouristName varchar(50))
+as
+    begin
+        declare @TouristId int = (select Id from Tourists where Name = @TouristName);
+        declare @count int = (select count(*) from SitesTourists where TouristId = @TouristId);
+        declare @reward varchar(20) = null;
+
+        if(@count >= 100) set @reward = 'Gold badge';
+        else if(@count >= 50) set @reward = 'Silver badge';
+        else if(@count >= 25) set @reward = 'Bronze badge';
+
+        if(@reward is not null)
+        begin
+            update Tourists set Reward = @reward
+            where Id = @TouristId
+        end
+
+        select Name, Reward from Tourists where Id = @TouristId
+    end
