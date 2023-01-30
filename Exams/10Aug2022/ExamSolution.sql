@@ -125,3 +125,12 @@ select t.Name, t.Age, t.PhoneNumber, t.Nationality,
 left join TouristsBonusPrizes as tbp on tbp.TouristId = t.Id
 left join BonusPrizes as bp on bp.Id = tbp.BonusPrizeId
 order by t.Name
+
+-- 10. Tourists visiting History and Archaeology sites
+
+select distinct(substring(t.Name, charindex(' ', t.Name) + 1, len(t.Name) - charindex(' ', t.Name))) as LastName, t.Nationality, t.Age, t.PhoneNumber from Tourists as t
+join SitesTourists as st on t.Id = st.TouristId
+join Sites as s on s.Id = st.SiteId
+join Categories as c on s.CategoryId = c.Id
+where c.Name = 'History and archaeology'
+order by LastName
