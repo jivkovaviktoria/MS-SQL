@@ -82,3 +82,7 @@ insert into Sites values
 
 update Sites set Establishment = '(not defined)'
 where Establishment is null
+
+-- 04. Delete
+delete from TouristsBonusPrizes where BonusPrizeId = 5
+delete from BonusPrizes where Id = 5
