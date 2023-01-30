@@ -107,3 +107,13 @@ join Sites as s on s.LocationId = l.Id
 where l.Province = 'Sofia'
 group by l.Province, l.Municipality, l.Name
 order by CountOfSites desc, l.Name
+
+-- 08. Tourist Sites established BC
+
+select s.Name, l.Name, l.Municipality, l.Province, s.Establishment from Sites as s
+join Locations as l on s.LocationId = l.Id
+where (l.Name not like 'B%' and l.Name not like 'M%' and l.Name not like 'D%')
+ and s.Establishment like '%BC'
+order by s.Name
+
+
