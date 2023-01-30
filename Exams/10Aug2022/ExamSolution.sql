@@ -98,3 +98,12 @@ select s.Name, l.Name, s.Establishment, c.Name from Sites as s
 join Locations as l on s.LocationId = l.Id
 join Categories as c on s.CategoryId = c.Id
 order by c.Name desc, l.Name, s.Name
+
+-- 07. Count of Sites in Sofia Province
+
+select l.Province, l.Municipality, l.Name, count(*) as CountOfSites
+from Locations as l
+join Sites as s on s.LocationId = l.Id
+where l.Province = 'Sofia'
+group by l.Province, l.Municipality, l.Name
+order by CountOfSites desc, l.Name
