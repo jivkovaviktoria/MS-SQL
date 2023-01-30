@@ -63,6 +63,7 @@ create table TouristsBonusPrizes(
 
 
 -- 02. Insert
+
 insert into Tourists values
                          ('Borislava Kazakova',	52,	'+359896354244', 'Bulgaria',NULL),
                          ('Peter Bosh',	48,	'+447911844141', 'UK', NULL),
@@ -76,3 +77,8 @@ insert into Sites values
                       ('The Tomb of Tsar Sevt', 63, 8, 'V BC'),
                       ('Sinite Kamani Natural Park', 17, 1, NULL),
                       ('St. Petka of Bulgaria – Rupite', 92, 6, '1994')
+
+-- 03. Update
+
+update Sites set Establishment = '(not defined)'
+where Establishment is null
