@@ -116,4 +116,12 @@ where (l.Name not like 'B%' and l.Name not like 'M%' and l.Name not like 'D%')
  and s.Establishment like '%BC'
 order by s.Name
 
+-- 09. Tourists with their Bonus Prizes
 
+select t.Name, t.Age, t.PhoneNumber, t.Nationality,
+       IIF(bp.Name is null, '(no bonus prize)', bp.Name)
+       as BonusPrize
+       from Tourists as t
+left join TouristsBonusPrizes as tbp on tbp.TouristId = t.Id
+left join BonusPrizes as bp on bp.Id = tbp.BonusPrizeId
+order by t.Name
